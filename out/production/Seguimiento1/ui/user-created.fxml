@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="alertCreated" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="155.0" prefWidth="337.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="64.0" prefWidth="274.0" text="The account was created succesfully" textAlignment="CENTER" wrapText="true" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </Label>
+   </center>
+   <bottom>
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#dismissCreated" prefHeight="31.0" prefWidth="120.0" style="-fx-background-color: white; -fx-border-color: black;" text="OK" textAlignment="CENTER" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="15.0" />
+         </BorderPane.margin>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </bottom>
+</BorderPane>
