@@ -4,16 +4,16 @@ import java.util.ArrayList;
 public class User {
     private final String userName;
     private final String password;
-    private final String profilePicture;
+    private final String profilePicturePath;
     private final String gender;
     private final ArrayList<String> careers;
     private final String birthday;
     private final String browser;
 
-    public User(String userName, String password, String profilePicture, String gender, ArrayList<String> careers, String birthday, String browser) {
+    public User(String userName, String password, String profilePicturePath, String gender, ArrayList<String> careers, String birthday, String browser) {
         this.userName = userName;
         this.password = password;
-        this.profilePicture = profilePicture;
+        this.profilePicturePath = profilePicturePath;
         this.gender = gender;
         this.careers = careers;
         this.birthday = birthday;
@@ -34,8 +34,8 @@ public class User {
         return password;
     }
 
-    public String getProfilePicture() {
-        return profilePicture;
+    public String getProfilePicturePath() {
+        return profilePicturePath;
     }
 
     public String getGender() {

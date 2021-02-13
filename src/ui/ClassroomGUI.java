@@ -1,5 +1,4 @@
 package ui;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,7 +16,6 @@ import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.*;
-
 import java.io.File;
 import java.util.ArrayList;
 
@@ -142,7 +140,6 @@ public class ClassroomGUI {
                 loginError.getIcons().add(icon);
                 loginError.setTitle("Login Error");
                 loginError.setScene(new Scene(root3));
-                loginError.setResizable(false);
                 loginError.show();
             } catch (Exception e) {
                 System.out.println("Can't load window at the moment. The alert can´t be loaded");
@@ -159,7 +156,6 @@ public class ClassroomGUI {
                 accountList.getIcons().add(icon);
                 accountList.setTitle("Classroom");
                 accountList.setScene(new Scene(root4));
-                accountList.setResizable(false);
                 initAccountList(apoII.userExists(usernameField.getText(), passwordField.getText()));
                 accountList.show();
             } catch (Exception e) {
@@ -171,10 +167,9 @@ public class ClassroomGUI {
     @FXML
     private void initAccountList(User loggedUser) {
         loggedUserLB.setText(loggedUser.getUserName());
-        File file = new File(loggedUser.getProfilePicture());
+        File file = new File(loggedUser.getProfilePicturePath());
         Image image = new Image(file.toURI().toString());
         loggedUserIMV.setImage(image);
-
 
         usrColumn.setCellValueFactory(new PropertyValueFactory<User, String>("userName"));
         usrColumn.setStyle( "-fx-alignment: CENTER;");
@@ -192,6 +187,25 @@ public class ClassroomGUI {
     }
 
     @FXML
+    void logOutClicked(ActionEvent event) {
+        Stage stage = (Stage) acclistPane.getScene().getWindow();
+        stage.close();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("main-pane.fxml"));
+            fxmlLoader.setController(this);
+            Parent root1 = fxmlLoader.load();
+            Stage mainPane = new Stage();
+            Image icon = new Image("ui/resources/icon.png");
+            mainPane.getIcons().add(icon);
+            mainPane.setTitle("Classroom");
+            mainPane.setScene(new Scene(root1));
+            mainPane.show();
+        } catch (Exception e) {
+            System.out.println("Can't load window at the moment.");
+        }
+    }
+
+    @FXML
     void signUpPressed(ActionEvent event) {
         Stage stage = (Stage) mainPane.getScene().getWindow();
         stage.close();
@@ -206,29 +220,8 @@ public class ClassroomGUI {
             createAccountWD.getIcons().add(icon);
             createAccountWD.setTitle("Classroom");
             createAccountWD.setScene(new Scene(root2));
-            createAccountWD.setResizable(false);
             pathField.setEditable(false);
             createAccountWD.show();
-        } catch (Exception e) {
-            System.out.println("Can't load window at the moment.");
-        }
-    }
-
-    @FXML
-    void logOutClicked(ActionEvent event) {
-        Stage stage = (Stage) acclistPane.getScene().getWindow();
-        stage.close();
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("main-pane.fxml"));
-            fxmlLoader.setController(this);
-            Parent root1 = fxmlLoader.load();
-            Stage mainPane = new Stage();
-            Image icon = new Image("ui/resources/icon.png");
-            mainPane.getIcons().add(icon);
-            mainPane.setTitle("Classroom");
-            mainPane.setScene(new Scene(root1));
-            mainPane.setResizable(false);
-            mainPane.show();
         } catch (Exception e) {
             System.out.println("Can't load window at the moment.");
         }
@@ -250,7 +243,7 @@ public class ClassroomGUI {
     void createAccountClicked(ActionEvent event) {
         String newUserName = newUsernameField.getText();
         String newPassword = newPasswordField.getText();
-        String newProfilePic = (pathField.getText().isEmpty()) ? "C:\\Users\\zac\\J\\APOII\\FollowUps\\Seguimiento1\\src\\ui\\resources\\userpicdef.png": pathField.getText();
+        String newProfilePicPath = (pathField.getText().isEmpty()) ? "src/ui/resources/userpicdef.png": pathField.getText();
         RadioButton selectedRadioButton = (RadioButton) tgGender.getSelectedToggle();
         String gender = selectedRadioButton.getText();
         ArrayList<String> newCareers = new ArrayList<>();
@@ -270,7 +263,6 @@ public class ClassroomGUI {
                 alertIncomplete.getIcons().add(icon);
                 alertIncomplete.setTitle("Validation Error");
                 alertIncomplete.setScene(new Scene(root3));
-                alertIncomplete.setResizable(false);
                 alertIncomplete.show();
             } catch (Exception e) {
                 System.out.println("Can't load window at the moment.");
@@ -286,14 +278,13 @@ public class ClassroomGUI {
                 alertIncomplete.getIcons().add(icon);
                 alertIncomplete.setTitle("Validation Error");
                 alertIncomplete.setScene(new Scene(root3));
-                alertIncomplete.setResizable(false);
                 incompleteLBL.setText("Can't create user. Please try another username (Case sensitive)");
                 alertIncomplete.show();
             } catch (Exception e) {
                 System.out.println("Can't load window at the moment.");
             }
         } else {
-            apoII.addUser(newUserName,newPassword,newProfilePic,gender,newCareers,newBDay,newBrowser);
+            apoII.addUser(newUserName,newPassword,newProfilePicPath,gender,newCareers,newBDay,newBrowser);
 
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("user-created.fxml"));
@@ -305,7 +296,6 @@ public class ClassroomGUI {
                 alertCreated.getIcons().add(icon);
                 alertCreated.setTitle("Account created");
                 alertCreated.setScene(new Scene(root3));
-                alertCreated.setResizable(false);
                 alertCreated.show();
             } catch (Exception e) {
                 System.out.println("Can't load window at the moment.");
@@ -326,7 +316,6 @@ public class ClassroomGUI {
             mainPane.getIcons().add(icon);
             mainPane.setTitle("Classroom");
             mainPane.setScene(new Scene(root1));
-            mainPane.setResizable(false);
             mainPane.show();
         } catch (Exception e) {
             System.out.println("Can't load window at the moment.");
@@ -360,7 +349,6 @@ public class ClassroomGUI {
             mainPane.getIcons().add(icon);
             mainPane.setTitle("Classroom");
             mainPane.setScene(new Scene(root1));
-            mainPane.setResizable(false);
             mainPane.show();
         } catch (Exception e) {
             System.out.println("Can't load window at the moment.");
