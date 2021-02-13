@@ -6,8 +6,8 @@ public class Classroom {
 
     private final List<User> accounts = new ArrayList<>();
 
-    public void addUser(String userName, String password, String profilePicture, String gender, ArrayList<String> careers, String birthday, String browser) {
-        User newUser = new User(userName,password,profilePicture,gender,careers,birthday,browser);
+    public void addUser(String userName, String password, String profilePicturePath, String gender, ArrayList<String> careers, String birthday, String browser) {
+        User newUser = new User(userName,password,profilePicturePath,gender,careers,birthday,browser);
         accounts.add(newUser);
     }
 

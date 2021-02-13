@@ -23,7 +23,7 @@ public class ClassroomGUI {
 
     private final Classroom apoII;
     private final ObservableList<String> browserList = FXCollections
-            .observableArrayList("Chrome", "Safari", "Mozilla", "Opera", "Opera GX", "Brave", "New Edge", "Edge", "TOR", "Other");
+            .observableArrayList("Chrome", "Safari", "Mozilla", "Opera", "Opera GX", "Brave", "New Edge", "Edge", "Tor", "Other");
 
     /*Create account fields*/
     @FXML
@@ -154,7 +154,7 @@ public class ClassroomGUI {
                 Stage accountList = new Stage();
                 Image icon = new Image("ui/resources/icon.png");
                 accountList.getIcons().add(icon);
-                accountList.setTitle("Classroom");
+                accountList.setTitle("Classroom: User account list");
                 accountList.setScene(new Scene(root4));
                 initAccountList(apoII.userExists(usernameField.getText(), passwordField.getText()));
                 accountList.show();
@@ -197,7 +197,7 @@ public class ClassroomGUI {
             Stage mainPane = new Stage();
             Image icon = new Image("ui/resources/icon.png");
             mainPane.getIcons().add(icon);
-            mainPane.setTitle("Classroom");
+            mainPane.setTitle("Classroom: login menu");
             mainPane.setScene(new Scene(root1));
             mainPane.show();
         } catch (Exception e) {
@@ -218,7 +218,7 @@ public class ClassroomGUI {
             Stage createAccountWD = new Stage();
             Image icon = new Image("ui/resources/icon.png");
             createAccountWD.getIcons().add(icon);
-            createAccountWD.setTitle("Classroom");
+            createAccountWD.setTitle("Classroom: create a new account");
             createAccountWD.setScene(new Scene(root2));
             pathField.setEditable(false);
             createAccountWD.show();
@@ -314,7 +314,7 @@ public class ClassroomGUI {
             Stage mainPane = new Stage();
             Image icon = new Image("ui/resources/icon.png");
             mainPane.getIcons().add(icon);
-            mainPane.setTitle("Classroom");
+            mainPane.setTitle("Classroom: login menu");
             mainPane.setScene(new Scene(root1));
             mainPane.show();
         } catch (Exception e) {
@@ -347,7 +347,7 @@ public class ClassroomGUI {
             Stage mainPane = new Stage();
             Image icon = new Image("ui/resources/icon.png");
             mainPane.getIcons().add(icon);
-            mainPane.setTitle("Classroom");
+            mainPane.setTitle("Classroom: login menu");
             mainPane.setScene(new Scene(root1));
             mainPane.show();
         } catch (Exception e) {

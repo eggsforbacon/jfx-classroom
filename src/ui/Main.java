@@ -8,6 +8,8 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.Classroom;
 
+import java.util.ArrayList;
+
 public class Main extends Application {
 
     ClassroomGUI controller;
@@ -15,6 +17,9 @@ public class Main extends Application {
 
     public Main() {
         apoII = new Classroom();
+        ArrayList<String> rootCareers = new ArrayList<>();
+        rootCareers.add("Admin");
+        apoII.addUser("root","toor","src/ui/resources/userpicdef.png","n.a.",rootCareers,"n.a.","Tor");
         controller = new ClassroomGUI(apoII);
     }
 
@@ -27,8 +32,7 @@ public class Main extends Application {
         primaryStage.getIcons().add(icon);
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Classroom");
-        //primaryStage.setResizable(false);
+        primaryStage.setTitle("Classroom: login menu");
         primaryStage.show();
     }
 
