@@ -27,7 +27,12 @@
                <image>
                   <Image url="@resources/userpicdef.png" />
                </image></ImageView>
-            <Button mnemonicParsing="false" onAction="#logOutClicked" prefHeight="31.0" prefWidth="88.0" style="-fx-background-color: #1973E6; -fx-background-radius: 8;" text="Log out" textFill="WHITE" HBox.hgrow="ALWAYS">
+            <Button mnemonicParsing="false" onAction="#logOutClicked" prefHeight="31.0" prefWidth="88.0" style="-fx-background-color: #1973E6; -fx-background-radius: 8;" text="Log out" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#exportClicked" prefHeight="31.0" prefWidth="88.0" style="-fx-background-color: #1973E6; -fx-background-radius: 8;" text="Export" textFill="WHITE" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

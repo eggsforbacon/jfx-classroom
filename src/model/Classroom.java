@@ -1,5 +1,8 @@
 package model;
+import java.io.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Classroom {
@@ -33,5 +36,29 @@ public class Classroom {
             if (user.getUserName().equals(username)) return true;
         }
         return false;
+    }
+
+    public void exportClassroom(String regex, String fileName) throws FileNotFoundException {
+        PrintWriter pw = new PrintWriter(fileName);
+
+        for (User u : accounts) {
+            pw.println(u.getUserName() + regex + u.getPassword() + regex + u.getProfilePicturePath() + regex + u.getGender() + regex
+                    + u.getCareers().replaceAll("\\n",",") + regex + u.getBirthday() + regex + u.getBrowser());
+        }
+
+        pw.close();
+    }
+
+    public void importClassroom(String regex, String fileName) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader(fileName));
+        String line = br.readLine();
+        while(line!=null){
+            String[] parts = line.split(regex);
+            ArrayList<String> parts4 = new ArrayList<>(Arrays.asList((parts[4].split(","))));
+            addUser(parts[0],parts[1],parts[2],parts[3],parts4,parts[5],parts[6]);
+            line = br.readLine();
+        }
+
+        br.close();
     }
 }

@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
 <BorderPane fx:id="mainPane" maxHeight="288.0" maxWidth="483.0" minHeight="288.0" minWidth="483.0" prefHeight="288.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <VBox alignment="CENTER" prefHeight="132.0" prefWidth="360.0" BorderPane.alignment="CENTER">
@@ -45,6 +51,11 @@
       <HBox alignment="CENTER" prefHeight="90.0" prefWidth="594.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="signUpBTN" mnemonicParsing="false" onAction="#signUpPressed" style="-fx-background-color: #1973E6; -fx-background-radius: 8;" text="Sign Up" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#importClicked" onMouseClicked="#signInPressed" style="-fx-background-color: #1973E6; -fx-background-radius: 8;" text="Import" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
